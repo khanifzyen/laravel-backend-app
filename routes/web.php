@@ -18,10 +18,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::middleware(['auth','verified'])->group(function(){
-    Route::get('home',function(){
-        return view('pages.blank-page',['type_menu'=>'']);
-    })->name('home');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('home', function () {
+        return view('pages.blank-page', ['type_menu' => '']);
+    })->name('home')->middleware('can:dashboard');
 });
 
 // Route::get('/login', function () {
